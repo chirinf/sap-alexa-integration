@@ -16,10 +16,11 @@ Crear Layer Lambbda para SAP PyRFC
 
 5) En la consola, ejecutar el siguiente script:
 
+```console
 mkdir python lib
 cd python
 pip3 install https://github.com/SAP/PyRFC/releases/download/2.1.0/pynwrfc-2.1.0-cp38-cp38-linux_x86_64.whl -t .
-
+```
 
 6) Copiar de la carpeta resultante del paso 1 la subcarpeta LIB a la raiz del proyecto en Cloud9.
 
@@ -27,5 +28,7 @@ pip3 install https://github.com/SAP/PyRFC/releases/download/2.1.0/pynwrfc-2.1.0-
 
 7) Nuevamente abrir consola del paso 5 y ejecutar los siguientes comandos, reemplazado nombre del bucket con el que corresponda:
 
+```console
 zip -r9 pyrfc_layer.zip python lib
 aws s3 cp pyrfc_layer.zip s3://chirinf-lambda-layers/pyrfc_layer.zip
+```
