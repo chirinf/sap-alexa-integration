@@ -26,9 +26,9 @@ pip3 install https://github.com/SAP/PyRFC/releases/download/2.1.0/pynwrfc-2.1.0-
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-19T21-07-08.png)
 
-7) Nuevamente abrir consola del paso 5 y ejecutar los siguientes comandos, reemplazado nombre del bucket con el que corresponda:
+7) Nuevamente abrir consola como paso 4 y ejecutar los siguientes comandos, reemplazado <nombre_bucket> con el destino para almacenar Layer:
 
 ```console
 zip -r9 pyrfc_layer.zip python lib
-aws s3 cp pyrfc_layer.zip s3://chirinf-lambda-layers/pyrfc_layer.zip
+aws s3 cp pyrfc_layer.zip s3://<nombre_bucket>/pyrfc_layer.zip
 ```
