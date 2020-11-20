@@ -2,9 +2,9 @@
 
 1) Descargar SAP NW RFC SDK 7.50 desde SAP Marketplace (versión para LINUX ON X86_64 64 BITS). Descomprimir en alguna ruta, será utilizado en siguientes pasos.
 
-2) Para esta caso, vamos a utilizar un entorno AWS Cloud9 basado en Amazon Linux 2 para generar Layer. Una guía paso a paso de como lanzar entornos Cloud9 en el siguiente link: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html
+2) En esta caso vamos a utilizar un entorno AWS Cloud9 basado en Amazon Linux 2 para generar Layer. Una guía paso a paso de como lanzar entornos Cloud9 en el siguiente link: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html
 
-3) Dentro del entorno de Cloud9, seleccionar Window->New Terminal y ejecutar siguiente comandos shell para crear entorno Python e instalar driver necesarios:
+3) Dentro del entorno de Cloud9, seleccionar Window->New Terminal y ejecutar los siguientes comandos shell para crear entorno Python e instalar dependencias necesarias:
 
 ```console
 sudo yum install -y amazon-linux-extras
@@ -19,7 +19,7 @@ pip3 install https://github.com/SAP/PyRFC/releases/download/2.1.0/pynwrfc-2.1.0-
 cp /usr/lib64/libuuid.so.1 /home/ec2-user/environment/PyRFC_Layer/lib
 ```
 
-4) Copiar desde la carpeta resultante del paso 1 la subcarpeta LIB hasta PyRFC_Layer/lib/ en Cloud9 (arrastrando y soltando).
+4) Copiar desde la carpeta resultante del paso 1 todos los archivos de la subcarpeta LIB hasta PyRFC_Layer/lib/ en Cloud9 (arrastrando y soltando):
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-20T19-35-32.png)
 
@@ -34,9 +34,9 @@ zip -r9 pyrfc_layer.zip python lib
 aws s3 cp pyrfc_layer.zip s3://<nombre_bucket>/pyrfc_layer.zip
 ```
 
-6) En la consola AWS, ingresar a servicio Lambda, seleccionar Additional Resources->Layers->Create layer.
+6) En la consola AWS ingresar a servicio Lambda, seleccionar Additional Resources->Layers->Create layer.
 
-7) Indicar un nombre y ruta S3 indicada anteriormente (modificado <nombre_bucket>) y Runtime compatible Python 3.8:
+7) Indicar algún nombre y ruta S3 indicada anteriormente (modificado <nombre_bucket>) y Runtime compatible Python 3.8:
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-20T19-45-39.png)
 
