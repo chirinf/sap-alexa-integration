@@ -1,0 +1,95 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "bandeja sap",
+            "intents": [
+                {
+                    "name": "AMAZON.FallbackIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": [
+                        "salir de bandeja",
+                        "salir de bandeja sap"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "ContarItems",
+                    "slots": [],
+                    "samples": [
+                        "cuantos pedidos tengo pendientes por aprobar",
+                        "cantidad de documentos",
+                        "cuantos documentos tengo",
+                        "cuantos documentos tengo en la bandeja",
+                        "cuantos documentos tengo pendientes",
+                        "cuanto documentos tengo por aprobar"
+                    ]
+                },
+                {
+                    "name": "DocumentoAntiguo",
+                    "slots": [],
+                    "samples": [
+                        "documento mas viejo",
+                        "documento mas atrasado",
+                        "cual es el documento mas antiguo",
+                        "documento mas antiguo"
+                    ]
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AprobarPedido",
+                    "slots": [],
+                    "samples": [
+                        "aprueba pedido",
+                        "aprobar pedido"
+                    ]
+                },
+                {
+                    "name": "BuscarPedido",
+                    "slots": [
+                        {
+                            "name": "nro_pedido",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "busca el pedido {nro_pedido}"
+                    ]
+                },
+                {
+                    "name": "BuscarPedidoPorNumero",
+                    "slots": [
+                        {
+                            "name": "fin_nro_pedido",
+                            "type": "AMAZON.FOUR_DIGIT_NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "busca el pedido que termina con {fin_nro_pedido}"
+                    ]
+                }
+            ],
+            "types": []
+        }
+    }
+}
