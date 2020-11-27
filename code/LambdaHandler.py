@@ -1,6 +1,7 @@
 from __future__ import print_function
 from pyrfc import Connection
 import re
+
 #Modificar Usuario, Password, IP, número de instnacia y mandante
 USERID = <usuario sap>
 PASSWD = <password>
@@ -117,15 +118,20 @@ def get_DocumentoAntiguo(intent, session):
     result = conn.call("SAP_WAPI_CREATE_WORKLIST", USER=USERID, LANGUAGE=LANG, WORKLIST=WORKLIST)
     #Pregunta 1 - Cuantos items tengo por aprobar?
     oldest_wi = ''
+    xi = 0
+    WORKLIST.sort(reverse=True)
     for x in result["WORKLIST"]:
         #Pregunta 2: Cuál es el pedido mas atrasado por aprobar?.
-        if oldest_wi == '':
+        if xi == 0:
+            xi = xi + 1
             oldest_wi = x.get('WI_ID')
             oldest_text = x.get('WI_TEXT')
             oldest_cd = x.get('WI_CD')
             oldest_ct = x.get('WI_CT')
-    m = re.search(r'\d\d\d\d\d\d\d\d\d\d', x.get('WI_TEXT'))
-    nro_pedido = m.group(0)
+            m = re.search(r'\d\d\d\d\d\d\d\d\d\d', x.get('WI_TEXT'))
+            nro_pedido = m.group(0)
+            print(nro_pedido)
+
     session_attributes = create_nro_pedido(nro_pedido)
     should_end_session = False
 
