@@ -33,4 +33,6 @@ El endpoint con la lógica de para responder a Intents de Alexa corresponde a un
 Luego de generar la función Lambda que actuará como Handler para el Skill de Alexa, procedemos a implementar el modelo de interacción de Alexa. Es aquí donde se definen las solicitudes que el usuario puede hacer a Alexa y que método de la función será el que ejecute acción. La guía paso a paso aquí.
 
 
+<a href="Alexa-SAP-Integration.mp4" download>link</a>
+
 En el siguiente [link](Alexa-SAP-Integration.mp4) un video de la solución final funcionando en un dispositivo Amazon Echo Dot.
