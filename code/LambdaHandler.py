@@ -1,32 +1,13 @@
-### Crear función Handler en Lambda
-
-1) Dentro de Lambda, creamos la función que tendrá la lógica para responder a solicitudes a Alexa (runtime Python 3.8):
-
-![](images/LambdaHandler_ES/2020-11-24T21-01-20.png)
-
-Seleccionamos VPC y subnet donde se encuentre instancia SAP, además de grupo de seguridad con acceso a puertos 33(nro de instancia):
-
-![](images/LambdaHandler_ES/2020-11-24T21-03-22.png)
-
-![](images/LambdaHandler_ES/2020-11-24T21-03-54.png)
-
-
-2) Luego de crear la función, seleccionar el Layer creado en pasos anteriores:
-
-![](images/LambdaHandler_ES/2020-11-24T21-05-22.png)
-
-3) Copiar y pegar el siguiente código:
-
-```Python
 from __future__ import print_function
 from pyrfc import Connection
 import re
+#Modificar Usuario, Password, IP, número de instnacia y mandante
 USERID = <usuario sap>
 PASSWD = <password>
 LANG = 'ES'
-SAPHOST= <IP Servidor ABAP>
-SAPINSTANCENUM= <Número de instancia>
-SAPCLIENT= <Mandante>
+SAPHOST = <IP Servidor ABAP>
+SAPINSTANCENUM = <Número de instancia>
+SAPCLIENT = <Mandante>
 
 WORKLIST = []
 PO_HEADER = { }
@@ -357,5 +338,3 @@ def lambda_handler(event, context):
         return on_intent(event['request'], event['session'])
     elif event['request']['type'] == "SessionEndedRequest":
         return on_session_ended(event['request'], event['session'])
-
-```
