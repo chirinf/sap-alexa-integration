@@ -34,3 +34,13 @@ Luego de generar la función Lambda que actuará como Handler para el Skill de A
 
 
 El siguiente es un video de la solución final funcionando en un dispositivo Amazon Echo Dot:
+
+![](images/Alexa-SAP-Integration.mp4)
+
+<!-- blank line -->
+<figure class="video_container">
+  <video controls="true" allowfullscreen="true" poster="path/to/poster_image.png">
+    <source src="images/Alexa-SAP-Integration.mp4" type="images/Alexa-SAP-Integration.mp4">
+  </video>
+</figure>
+<!-- blank line -->
