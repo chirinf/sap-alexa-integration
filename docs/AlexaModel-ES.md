@@ -1,4 +1,4 @@
-### Crear función Handler en Lambda
+### Crear Skill para Alexa
 
 1) Ingresar a Alexa Developer Console (https://developer.amazon.com/alexa/console/ask) con cuenta de desarrollador. Si no tiene, crear una nueva.
 
