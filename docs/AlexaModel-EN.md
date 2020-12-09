@@ -1,31 +1,30 @@
-### Crear función Handler en Lambda
+### Create Handler function in Lambda
 
-1) Ingresar a Alexa Developer Console (https://developer.amazon.com/alexa/console/ask) con cuenta de desarrollador. Si no tiene, crear una nueva.
+1) Log in to Alexa Developer Console (https://developer.amazon.com/alexa/console/ask) with developer account. If you don't have, create a new one.
 
-2) En la consola presionar "Create Skill":
+2) In the console press “Create Skill”:
 
 ![](images/AlexaModel/2020-11-24T21-49-51.png)
 
-3) Indicar un nombre para Skill y el lenguaje por defecto (NOTA: Este leguaje debe ser el mismo que esté configfurado en el dispositivo a probar).
+3) Enter a name for Skill and the default language (NOTE: This language must be the same as configured on the device to be tested).
 
 ![](images/AlexaModel/2020-11-24T21-51-37.png)
 
-Seleccionar modelo Custom:
+Select Custom Model:
 ![](images/AlexaModel/2020-11-24T21-53-20.png)
 
-Y en método de host seleccionar "Provision your own"
+And in host method select “Provision your own”
 ![](images/AlexaModel/2020-11-24T21-53-00.png)
 
-Luego "Create Skill"
+Then “Create Skill”
 
-4) En el Template, seleccionar "Start from scratch":
+4) In the Template, select “Start from scratch”:
 ![](images/AlexaModel/2020-11-24T21-54-09.png)
 
-5) En la siguiente pantalla, seleccionar "Interaction Model->JSON Editor":
+5) On the next screen, select “Interaction Model->JSON Editor”:
 ![](images/AlexaModel/2020-11-24T21-56-24.png)
 
-6) Copiar y pegar el siguiente código:
-
+6) Copy and paste the following code:
 ```JSON
 {
     "interactionModel": {
@@ -124,26 +123,28 @@ Luego "Create Skill"
 }
 ````
 
-7) Presionar "Save Model" y luego "Build Model". El módelo será construido en unos segundos.
+7) Press “Save Model” and then “Build Model”. The model will be built in a few seconds.
 
-8) En la consola de Alexa seleccionamos "Endpoint" y copiamos el Skill ID:
+8) In the Alexa console select “Endpoint” and copy the Skill ID:
 ![](images/AlexaModel/2020-11-24T22-02-21.png)
 
 
-8) Volvemos a nuestra función en Lambda y seleccionamos "Add Trigger". Para el tipo de trigger seleccionamos Alexa Skills Kit e indicamos el Skill ID previamente copiado:
+9) We return to our function in Lambda and select “Add Trigger”. For the trigger type select Alexa Skills Kit and indicate the Skill ID previously copied:
 
 ![](images/AlexaModel/2020-11-24T22-04-37.png)
 
+amzn1.ask.skill.cb0c71de-1df1-481e-8657-ed0d042998af
 
-Luego copiamos el ARN de la función Lambda:
+Then we copy the ARN of the Lambda function:
 ![](images/AlexaModel/2020-11-24T22-00-40.png)
 
-9) Volvemos a la consola de Alexa y en default region pegamos el ARN de la función lambda previamente copiado:
+9) We return to the Alexa console and in default region paste the ARN of the lambda function previously copied:
 
 ![](images/AlexaModel/2020-11-24T22-07-33.png)
 
-Luego "Save endpoints"
 
-10) Para probar vamos al menu superior "Test" e indicamos  "Abre bandeja SAP". Alexa debería responder con el mensaje de bienvenida del Skill:
+Then “Save endpoints”
+
+10) To test go to the top menu “Test” and indicate “Open SAP tray”. Alexa should reply with the Skill welcome message:
 
 ![](images/AlexaModel/2020-11-24T22-16-14.png)

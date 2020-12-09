@@ -134,6 +134,7 @@ Luego "Create Skill"
 
 ![](images/AlexaModel/2020-11-24T22-04-37.png)
 
+amzn1.ask.skill.cb0c71de-1df1-481e-8657-ed0d042998af
 
 Luego copiamos el ARN de la función Lambda:
 ![](images/AlexaModel/2020-11-24T22-00-40.png)
