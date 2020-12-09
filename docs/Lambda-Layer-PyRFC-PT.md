@@ -1,10 +1,10 @@
-### Crear Layer Lambbda para SAP PyRFC
+### Criar camada Lambbda para SAP PyRFC
 
-1) Descargar SAP NW RFC SDK 7.50 desde SAP Marketplace (versión para LINUX ON X86_64 64 BITS). Descomprimir en alguna ruta, será utilizado en siguientes pasos.
+1) Baixe SAP NW RFC SDK 7.50 do SAP Marketplace (versão para LINUX EM X86_64 64 BITS). Descompacte em alguma rota, ele será usado nas seguintes etapas.
 
-2) En esta caso vamos a utilizar un entorno AWS Cloud9 basado en Amazon Linux 2 para generar Layer. Una guía paso a paso de como lanzar entornos Cloud9 en el siguiente link: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html
+2) Nesse caso, usaremos um ambiente AWS Cloud9 baseado no Amazon Linux 2 para gerar Layer. Um guia passo a passo sobre como iniciar ambientes Cloud9 no seguinte link: https://docs.aws.amazon.com/cloud9/latest/user-guide/create-environment-main.html
 
-3) Dentro del entorno de Cloud9, seleccionar Window->New Terminal y ejecutar los siguientes comandos shell para crear entorno Python e instalar dependencias necesarias:
+3) Dentro do ambiente Cloud9, selecione Window-> New Terminal e execute os seguintes comandos shell para criar ambiente Python e instalar dependências necessárias:
 
 ```console
 sudo yum install -y amazon-linux-extras
@@ -19,14 +19,14 @@ pip3 install https://github.com/SAP/PyRFC/releases/download/2.1.0/pynwrfc-2.1.0-
 cp /usr/lib64/libuuid.so.1 /home/ec2-user/environment/PyRFC_Layer/lib
 ```
 
-4) Copiar desde la carpeta resultante del paso 1 todos los archivos de la subcarpeta LIB hasta PyRFC_Layer/lib/ en Cloud9 (arrastrando y soltando):
+4) Copie da pasta resultante na etapa 1 todos os arquivos na subpasta LIB para Pyrfc_layer/lib/ no Cloud9 (arrastando e soltando):
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-20T19-35-32.png)
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-20T19-37-02.png)
 
 
-5) Nuevamente abrir consola como paso 3 y ejecutar los siguientes comandos, reemplazado <nombre_bucket> con el bucket S3 destino donde almacenar Layer:
+5) Novamente abra o console como etapa 3 e execute os seguintes comandos, <nombre_bucket> substituídos pelo bucket S3 de destino onde armazenar Camada:
 
 ```console
 cd /home/ec2-user/environment/PyRFC_Layer
@@ -34,13 +34,13 @@ zip -r9 pyrfc_layer.zip python lib
 aws s3 cp pyrfc_layer.zip s3://<nombre_bucket>/pyrfc_layer.zip
 ```
 
-6) En la consola AWS ingresar a servicio Lambda, seleccionar Additional Resources->Layers->Create layer.
+6) No console da AWS, insira o serviço do Lambda, selecione Recursos Adicionais-> Camadas->Criar camada.
 
-7) Indicar algún nombre y ruta S3 indicada anteriormente (modificado <nombre_bucket>) y Runtime compatible Python 3.8:
+7) Digite algum nome S3 e caminho indicado acima (modificado <nombre_bucket>) e Python 3.8 compatível Runtime:
 
 ![](images/Lambda_Layer_PyRFC_ES/2020-11-20T19-45-39.png)
 
-8) Luego de crear exitósamente Layer, ya puede ser utilizado en Lambda. El siguiente es un ejemplo de código para invocar función demo ABAP:
+8) Depois de criar Camada com sucesso, ela já pode ser usada no Lambda. O seguinte é um código de exemplo para invocar a função de demonstração ABAP:
 
 ```python
 import json

@@ -1,21 +1,21 @@
-### Crear función Handler en Lambda
+### Create Handler function in Lambda
 
-1) Dentro de Lambda, creamos la función que tendrá la lógica para responder a solicitudes a Alexa (runtime Python 3.8):
+1) Within Lambda, we create the function that will have the logic to respond to requests to Alexa (runtime Python 3.8):
 
 ![](images/LambdaHandler_ES/2020-11-24T21-01-20.png)
 
-Seleccionamos VPC y subnet donde se encuentre instancia SAP, además de grupo de seguridad con acceso a puertos 33(nro de instancia):
+Select VPC and subnet where SAP instance is located, plus security group with access to ports 33 (instance nro):
 
 ![](images/LambdaHandler_ES/2020-11-24T21-03-22.png)
 
 ![](images/LambdaHandler_ES/2020-11-24T21-03-54.png)
 
 
-2) Luego de crear la función, seleccionar el Layer creado en pasos anteriores:
+2) After creating the function, select the Layer created in previous steps:
 
 ![](images/LambdaHandler_ES/2020-11-24T21-05-22.png)
 
-3) Copiar y pegar el siguiente código:
+3) Copy and paste the following code:
 
 ```Python
 from __future__ import print_function
