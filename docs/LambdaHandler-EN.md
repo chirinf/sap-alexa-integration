@@ -1,10 +1,10 @@
-### Create Handler function in Lambda
+### Create Lambda Handler function
 
-1) Within Lambda, we create the function that will have the logic to respond to requests to Alexa (runtime Python 3.8):
+1) Within Lambda, create the function that will have the logic to respond to requests from Alexa (runtime Python 3.8):
 
 ![](images/LambdaHandler_ES/2020-11-24T21-01-20.png)
 
-Select VPC and subnet where SAP instance is located, plus security group with access to ports 33 (instance nro):
+Select the VPC and subnet where the SAP instance is located, also select a security group with access to ports 33 (ABAP system number):
 
 ![](images/LambdaHandler_ES/2020-11-24T21-03-22.png)
 
