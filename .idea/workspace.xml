@@ -21,7 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b3e83664-b88b-4d2f-aecd-db8666be77e3" name="Default Changelist" comment="Update Lambda Layer EN">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/AlexaModel-EN.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/AlexaModel-EN.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/LambdaHandler-EN.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/LambdaHandler-EN.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

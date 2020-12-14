@@ -78,19 +78,19 @@ def build_response(session_attributes, speechlet_response):
 # --------------- Functions that control the skill's behavior ------------------
 def get_welcome_response():
     session_attributes = {}
-    card_title = "Bienvenido"
-    speech_output = "Bienvenido a tu bandeja de entrada SAP. " \
-                    "¿Qué necesitas hacer?"
-    reprompt_text = "Lo siento, no entendí"
+    card_title = "Welcome"
+    speech_output = "Welcome to your S A P inbox. " \
+                    "¿What dou you want to do?"
+    reprompt_text = "I'm sorry, I did not undestand"
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
 
 def handle_session_end_request():
-    card_title = "Sesión Finalizada"
-    speech_output = "Saliendo de bandeja SAP. " \
-                    "Adios! "
+    card_title = "Session Ended"
+    speech_output = "Closing S A P inbox. " \
+                    "Goodbye! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
     return build_response({}, build_speechlet_response(
@@ -123,8 +123,8 @@ def get_ContarItems(intent, session):
     wi_pendientes = len(result["WORKLIST"])
     print (wi_pendientes)
 
-    speech_output = "Tienes " + str(wi_pendientes) + " documentos pendientes por aprobar." \
-                        ". ¿Necesitas algo más?."
+    speech_output = "You have " + str(wi_pendientes) + " documents pending for approval." \
+                        ". ¿Anything else that you need?."
     should_end_session = False
 
     return build_response(session_attributes, build_speechlet_response(
@@ -148,8 +148,8 @@ def get_DocumentoAntiguo(intent, session):
     session_attributes = create_nro_pedido(nro_pedido)
     should_end_session = False
 
-    speech_output = 'El documento más antiguo es el pedido: <say-as interpret-as="telephone">' + str(nro_pedido) + \
-    '</say-as> y fue creado el <say-as interpret-as="date">' + oldest_cd + ' </say-as> ¿Quieres más detalles?'
+    speech_output = 'The oldest document is : <say-as interpret-as="telephone">' + str(nro_pedido) + \
+    '</say-as> and was created on <say-as interpret-as="date">' + oldest_cd + ' </say-as> ¿Do you want more details?'
 
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
@@ -159,9 +159,9 @@ def get_DocumentoAntiguo(intent, session):
 def get_error():
     session_attributes = {}
     card_title = "Error"
-    speech_output = "Lo siento, eso no lo entendí. " \
-                    "¿Qué necesitas hacer?"
-    reprompt_text = "Por favor, puedes repetir? "
+    speech_output = "I'm sorry, I didn't understand" \
+                    "What do you need to do?"
+    reprompt_text = "Can you repeat please? "
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -169,7 +169,7 @@ def get_error():
 def get_detallepedido(intent, session):
     session_attributes = {}
     reprompt_text = ''
-    card_title = "Detalle Pedido"
+    card_title = "Document Details"
     if session.get('attributes', {}) and "nro_pedido" in session.get('attributes', {}):
         nro_pedido = session['attributes']['nro_pedido']
         pedido = conn.call("BAPI_PO_GETDETAIL", ITEMS='X', PURCHASEORDER=nro_pedido, PO_HEADER=PO_HEADER, PO_ITEMS=PO_ITEMS)
@@ -179,15 +179,15 @@ def get_detallepedido(intent, session):
             material = l_pedido.get('SHORT_TEXT')
             cantidad = l_pedido.get('QUANTITY')
             monto_total = l_pedido.get('GROS_VALUE')
-        speech_output = 'El pedido <say-as interpret-as="telephone">' + str(nro_pedido) + "</say-as> es para el proveedor " + proveedor + \
-        ". por un monto total de " + str(int(monto_total)) + " dedólares. Corresponde a la compra de " + str(int(cantidad)) + " " + material + \
-        '. <break time="1s"/> Si quieres que lo apruebe dí: Aprobar Pedido'
+        speech_output = 'The document <say-as interpret-as="telephone">' + str(nro_pedido) + "</say-as> is it for the supplier " + proveedor + \
+        ". for a total amount of " + str(int(monto_total)) + " U S Dollars. Corresponds to the purchase of " + str(int(cantidad)) + " " + material + \
+        '. <break time="1s"/> If you want me to approve it say: Approve Document'
         session_attributes = create_nro_pedido(nro_pedido)
         should_end_session = False
         return build_response(session_attributes, build_speechlet_response(
             card_title, speech_output, reprompt_text, should_end_session))
     else:
-        speech_output = "no tengo numero de pedido"
+        speech_output = "i don't have an order number"
         should_end_session = False
         return build_response(session_attributes, build_speechlet_response(
             card_title, speech_output, reprompt_text, should_end_session))
@@ -196,7 +196,7 @@ def get_detallepedido(intent, session):
 def get_no(intent, session):
     session_attributes = {}
     reprompt_text = ''
-    card_title = "Detalle Pedido"
+    card_title = "Order Detail"
     speech_output = ""
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
@@ -205,16 +205,16 @@ def get_no(intent, session):
 def get_apruebapedido(intent, session):
     session_attributes = {}
     reprompt_text = ''
-    card_title = "Aprobar Pedido"
+    card_title = "Approve Document"
     if session.get('attributes', {}) and "nro_pedido" in session.get('attributes', {}):
         nro_pedido = session['attributes']['nro_pedido']
         bapi_aprobar = conn.call("BAPI_PO_RELEASE", PURCHASEORDER=nro_pedido, PO_REL_CODE='MA', USE_EXCEPTIONS='X')
-        speech_output = 'Pedido <say-as interpret-as="telephone">' + str(nro_pedido) + '</say-as> aprobado.'
+        speech_output = 'Document <say-as interpret-as="telephone">' + str(nro_pedido) + '</say-as> approved.'
         should_end_session = False
         return build_response(session_attributes, build_speechlet_response(
             card_title, speech_output, reprompt_text, should_end_session))
     else:
-        speech_output = "no tengo numero de pedido"
+        speech_output = "I don't have an order number"
         should_end_session = False
         return build_response(session_attributes, build_speechlet_response(
             card_title, speech_output, reprompt_text, should_end_session))
@@ -224,8 +224,8 @@ def get_buscarpedido(intent, session):
     session_attributes = {}
     reprompt_text = ''
     busca_nro_pedido = intent['slots']['nro_pedido']['value']
-    card_title = "Buscar Pedido"
-    speech_output = "Buscar Pedido " + busca_nro_pedido
+    card_title = "Search document"
+    speech_output = "Search document " + busca_nro_pedido
 
     should_end_session = False
     return build_response(session_attributes, build_speechlet_response(
@@ -234,7 +234,7 @@ def get_buscarpedido(intent, session):
 def get_buscarpedidopornumero(intent, session):
     session_attributes = {}
     reprompt_text = ''
-    card_title = "Buscar Pedido por número"
+    card_title = "Search document by number"
     fin_nro_pedido = intent['slots']['fin_nro_pedido']['value']
 
     result = conn.call("SAP_WAPI_CREATE_WORKLIST", USER=USERID, LANGUAGE=LANG, WORKLIST=WORKLIST)
@@ -253,10 +253,10 @@ def get_buscarpedidopornumero(intent, session):
             m = re.search(r'\d\d\d\d\d\d\d\d\d\d', wi_text)
             nro_pedido = m.group(0)
             session_attributes = create_nro_pedido(nro_pedido)
-            speech_output = 'Encontré el pedido pendiente numero <say-as interpret-as="telephone">' + str(nro_pedido) + '</say-as>. Quieres saber mas detalles?'
+            speech_output = 'I found the pending document number <say-as interpret-as="telephone">' + str(nro_pedido) + '</say-as>. Do you want to know more details?'
 
         if nro_pedido == '':
-            speech_output = "No encontré ningun pedido"
+            speech_output = "I did not find any documents"
 
 
 
