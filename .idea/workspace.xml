@@ -19,7 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b3e83664-b88b-4d2f-aecd-db8666be77e3" name="Default Changelist" comment="" />
+    <list default="true" id="b3e83664-b88b-4d2f-aecd-db8666be77e3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Lambda-Layer-PyRFC-EN.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Lambda-Layer-PyRFC-EN.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -69,5 +72,11 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="491" y="107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1607976836219">
+      <screen x="0" y="23" width="1440" height="821" />
+    </state>
+    <state x="491" y="107" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.23.1440.821/1440.23.1920.1057@0.23.1440.821" timestamp="1607976836219" />
   </component>
 </project>
