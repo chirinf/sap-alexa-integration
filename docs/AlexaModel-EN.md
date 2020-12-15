@@ -8,7 +8,7 @@
 
 3) Enter a name for the Skill and default language:
 
-![](images/AlexaModel/2020-11-24T21-51-37.png)
+![](images/AlexaModel_EN/2020-12-15T16-12-49.png)
 
 Select Custom Model:
 ![](images/AlexaModel/2020-11-24T21-53-20.png)
@@ -29,7 +29,7 @@ Then “Create Skill”
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "SAP Inbox",
+            "invocationName": "s a p  inbox",
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -70,7 +70,7 @@ Then “Create Skill”
                     "name": "DocumentoAntiguo",
                     "slots": [],
                     "samples": [
-                        "oldest document"
+                        "Find the most overdue document to approve."
                     ]
                 },
                 {
