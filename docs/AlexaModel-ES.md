@@ -30,7 +30,12 @@ Luego "Create Skill"
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "bandeja sap",
+            "invocationName": "s a p inbox",
+            "modelConfiguration": {
+                "fallbackIntentSensitivity": {
+                    "level": "LOW"
+                }
+            },
             "intents": [
                 {
                     "name": "AMAZON.FallbackIntent",
@@ -47,8 +52,8 @@ Luego "Create Skill"
                 {
                     "name": "AMAZON.StopIntent",
                     "samples": [
-                        "salir de bandeja",
-                        "salir de bandeja sap"
+                        "exit",
+                        "cancel"
                     ]
                 },
                 {
@@ -59,22 +64,19 @@ Luego "Create Skill"
                     "name": "ContarItems",
                     "slots": [],
                     "samples": [
-                        "cuantos pedidos tengo pendientes por aprobar",
-                        "cantidad de documentos",
-                        "cuantos documentos tengo",
-                        "cuantos documentos tengo en la bandeja",
-                        "cuantos documentos tengo pendientes",
-                        "cuanto documentos tengo por aprobar"
+                        "How many documents do I have pending approval",
+                        "number of documents",
+                        "how many documents do i have",
+                        "how many documents do i have in my inbox",
+                        "how many documents do i have pending",
+                        "how many documents do i have to approve"
                     ]
                 },
                 {
                     "name": "DocumentoAntiguo",
                     "slots": [],
                     "samples": [
-                        "documento mas viejo",
-                        "documento mas atrasado",
-                        "cual es el documento mas antiguo",
-                        "documento mas antiguo"
+                        "oldest document"
                     ]
                 },
                 {
@@ -89,8 +91,7 @@ Luego "Create Skill"
                     "name": "AprobarPedido",
                     "slots": [],
                     "samples": [
-                        "aprueba pedido",
-                        "aprobar pedido"
+                        "approve document"
                     ]
                 },
                 {
@@ -102,7 +103,7 @@ Luego "Create Skill"
                         }
                     ],
                     "samples": [
-                        "busca el pedido {nro_pedido}"
+                        "search document {nro_pedido}"
                     ]
                 },
                 {
@@ -114,7 +115,7 @@ Luego "Create Skill"
                         }
                     ],
                     "samples": [
-                        "busca el pedido que termina con {fin_nro_pedido}"
+                        "search document ending with {fin_nro_pedido}"
                     ]
                 }
             ],

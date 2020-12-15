@@ -21,12 +21,12 @@ Select the VPC and subnet where the SAP instance is located, also select a secur
 from __future__ import print_function
 from pyrfc import Connection
 import re
-USERID = <usuario sap>
-PASSWD = <password>
-LANG = 'ES'
-SAPHOST= <IP Servidor ABAP>
-SAPINSTANCENUM= <Número de instancia>
-SAPCLIENT= <Mandante>
+USERID = <SAP User>
+PASSWD = <SAP password>
+LANG = 'EN'
+SAPHOST= <AS ABAP IP>
+SAPINSTANCENUM= <System Number>
+SAPCLIENT= <Client>
 
 WORKLIST = []
 PO_HEADER = { }
